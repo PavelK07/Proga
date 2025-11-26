@@ -18,12 +18,12 @@ int DinamicArr::getEllement(int index) const{
     }
 }
 void DinamicArr::setElement(int data, int index){
-    if (index>=0 && index<size && data > -100 && data < 100){
-        array[index] = data;
+    if (index<0 or index>size){
+        throw std::out_of_range("invalid index");
     } else if (data < -100 or data > 100){
         throw std::invalid_argument("Value outside the interval (-100;100)");
     } else{
-        throw std::out_of_range("invalid index");
+        array[index] = data;
     }
 }
 void DinamicArr::addElement(int data){
